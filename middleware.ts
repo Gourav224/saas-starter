@@ -1,7 +1,7 @@
 import {  authMiddleware,clerkClient } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-const publicRoutes = ["/", "/api/webhook/register", "/sign-in", "/sign-up"];
+const publicRoutes = ["/api/webhook/register", "/sign-in", "/sign-up"];
 
 /**
  * @deprecated Use `newFunction()` instead.
@@ -11,6 +11,7 @@ export default authMiddleware({
   async afterAuth(auth, req) {
     // Use 'auth' for authentication details and 'req' for NextRequest
     // Handle unauthenticated users trying to access protected routes
+    
     if (!auth.userId && !publicRoutes.includes(req.nextUrl.pathname)) {
       return NextResponse.redirect(new URL("/sign-in", req.url));
     }

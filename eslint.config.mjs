@@ -1,17 +1,19 @@
-import { defineConfig } from "eslint/config";
 import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import nextTypescript from "eslint-config-next/typescript";
+import { defineConfig } from "eslint/config";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default defineConfig([{
-    extends: [...nextCoreWebVitals, ...nextTypescript],
+export default defineConfig([
+    {
+        extends: [...nextCoreWebVitals, ...nextTypescript],
 
-    rules: {
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/no-empty-object-type": "off",
+        rules: {
+            "@typescript-eslint/no-unused-vars": "off",
+            "@typescript-eslint/no-empty-object-type": "off",
+        },
     },
-}]);
+]);

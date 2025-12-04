@@ -28,8 +28,8 @@ export function TodoItem({ todo, isAdmin = false, onUpdate, onDelete }: TodoItem
     return (
         <Card
             className={cn(
-                "border-2 transition-all hover:shadow-md",
-                isCompleted && "bg-muted/30 opacity-75",
+                "border-2 border-purple-100 transition-all hover:border-purple-300 hover:shadow-lg dark:border-purple-900/50 dark:hover:border-purple-700",
+                isCompleted && "bg-purple-50/50 opacity-75 dark:bg-purple-950/20",
             )}
         >
             <CardContent className="flex items-center gap-4 p-4">
@@ -37,18 +37,21 @@ export function TodoItem({ todo, isAdmin = false, onUpdate, onDelete }: TodoItem
                     variant="ghost"
                     size="icon"
                     onClick={toggleComplete}
-                    className={cn("h-8 w-8 shrink-0 rounded-full", isCompleted && "text-primary")}
+                    className={cn(
+                        "h-8 w-8 shrink-0 rounded-full transition-all hover:scale-110",
+                        isCompleted && "text-green-600 dark:text-green-400",
+                    )}
                 >
                     {isCompleted ? (
-                        <CheckCircle2 className="text-primary h-5 w-5" />
+                        <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400" />
                     ) : (
-                        <Circle className="h-5 w-5" />
+                        <Circle className="h-5 w-5 text-gray-400" />
                     )}
                 </Button>
                 <span
                     className={cn(
-                        "flex-1 text-base",
-                        isCompleted && "text-muted-foreground line-through",
+                        "flex-1 text-base text-gray-800 dark:text-gray-200",
+                        isCompleted && "text-gray-500 line-through dark:text-gray-500",
                     )}
                 >
                     {todo.title}
@@ -58,12 +61,12 @@ export function TodoItem({ todo, isAdmin = false, onUpdate, onDelete }: TodoItem
                         variant="ghost"
                         size="icon"
                         onClick={() => onDelete(todo.id)}
-                        className="text-destructive hover:text-destructive hover:bg-destructive/10 h-8 w-8"
+                        className="h-8 w-8 text-red-500 transition-all hover:scale-110 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/30 dark:hover:text-red-400"
                     >
                         <Trash2 className="h-4 w-4" />
                     </Button>
                     {isAdmin && (
-                        <span className="text-muted-foreground bg-muted rounded px-2 py-1 text-xs">
+                        <span className="rounded bg-purple-100 px-2 py-1 text-xs text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
                             {todo.userId.slice(0, 8)}
                         </span>
                     )}

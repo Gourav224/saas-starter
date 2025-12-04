@@ -29,11 +29,14 @@ export function TodoForm({ onSubmit }: TodoFormProps) {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="What needs to be done?"
-                className="h-11 text-base"
+                className="h-11 border-purple-200 text-base focus:border-purple-500 focus:ring-purple-500 dark:border-purple-800"
                 required
                 autoFocus
             />
-            <Button type="submit" className="h-11 px-6 font-semibold">
+            <Button
+                type="submit"
+                className="h-11 bg-gradient-to-r from-purple-600 to-indigo-600 px-6 font-semibold text-white shadow-md shadow-purple-500/30 transition-all hover:scale-105 hover:shadow-purple-500/40"
+            >
                 <Plus className="mr-2 h-4 w-4" />
                 Add
             </Button>

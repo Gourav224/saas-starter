@@ -26,7 +26,7 @@ export function TodoForm({ onSubmit }: TodoFormProps) {
 				value={title}
 				onChange={(e) => setTitle(e.target.value)}
 				placeholder="Enter a new todo"
-				className="flex-grow"
+				className="grow"
 				required
 			/>
 			<Button type="submit" variant="outline">
